@@ -15,6 +15,6 @@ def download_by_music_id(music_id):
     lrc = re.sub(pat, "", lrc)
     lrc = lrc.strip()
     return lrc
-music_id = input('enter the id of a song ')
+music_id = input('enter the id of a song')
 words = download_by_music_id(music_id)
 print(words)
