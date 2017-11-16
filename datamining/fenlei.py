@@ -5,6 +5,7 @@ invalid_rules = defaultdict(int)
 num_occurances = defaultdict(int)
 dataset_filename = "affinity_dataset.txt"
 X = np.loadtxt(dataset_filename)
+features = ["bread", "milk", "cheese", "apples", "bananas"]
 for sample in X:
     for premise in range(4):
         if sample[premise] == 0: continue
