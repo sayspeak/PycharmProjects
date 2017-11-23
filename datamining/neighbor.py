@@ -29,3 +29,21 @@ estimator.fit(X_train,y_train)
 y_predicted = estimator.predict(X_test)
 accuracy = np.mean(y_test == y_predicted) * 100
 print("the accuracy is {0:1f}%".format(accuracy))
+
+#切分多个数据集，并保证每次切割得到的训练集和测试集都不一样从而，优化，即"交叉检验"
+from sklearn.model_selection import cross_val_score
+#传输两个完整的数据集和类别值
+scores = cross_val_score(estimator,X,y,scoring='accuracy')
+average_accuracy = np.mean(scores) * 100
+print("the average accuracy is {0:.1f}%".format(average_accuracy))
+avg_scores = []
+all_scores = []
+parameter_values = list(range(1,21))
+for n_neighbors in parameter_values:
+    estimator = KNeighborsClassifier(n_neighbors=n_neighbors)
+    scores = cross_val_score(estimator,X,y,scoring='accuracy')
+    avg_scores.append(np.mean(scores))
+    all_scores.append(scores)
+from matplotlib import pyplot as plt
+plt.plot(parameter_values,avg_scores,'-o')
+plt.show()
