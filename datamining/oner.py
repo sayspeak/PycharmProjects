@@ -14,7 +14,7 @@ X_d = np.array(X >= attribute_means, dtype='int')
 from sklearn.model_selection import train_test_split
 
 # Set the random state to the same number to get the same results as in the book
-random_state = 14
+random_state = None
 
 X_train, X_test, y_train, y_test = train_test_split(X_d, y, random_state=random_state)
 print("No.2\n")
