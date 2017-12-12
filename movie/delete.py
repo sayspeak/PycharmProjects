@@ -201,6 +201,7 @@ def login():
     BaseRequest = {
         'Uin': int(wxuin),
         'Sid': wxsid,
+
         'Skey': skey,
         'DeviceID': deviceId,
     }
